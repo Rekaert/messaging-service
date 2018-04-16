@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "bootstrap": "^4.1.0",
+    "browser-sync": "^2.23.6",
+    "connect-browser-sync": "^2.1.0",
     "mongoose-type-email": "^1.0.5",
     "node-gyp-install": "^2.2.0",
     "node-pre-gyp": "^0.9.1",

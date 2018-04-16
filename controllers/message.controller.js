@@ -1,9 +1,9 @@
-const Message = require('../models/message.model')
+const Message = require('../models/message.model');
 
 module.exports = {
-    // getAll()
+
     list: (req, res) => {
-        //find segítségével meg tudom keresni az összes objektumot amelyek megfelelnek adott feltételeknek
+
         Message.find({}, (err, message) => {
             if (err) {
                 res.send(err)

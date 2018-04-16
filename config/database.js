@@ -1,7 +1,7 @@
 const host = 'localhost'
 const port = 27017
-const user = 'mess'
-const password = 'passmess'
+const user = 'messageServ'
+const password = 'mess'
 const database = 'messageService'
 
 const options = {
@@ -14,7 +14,7 @@ const options = {
 }
 
 // milyen felhasználó névvel, milyen passal, milsen hoston, portszámon, milyen adatbázisjoz, milyen kulcson
-// mongodb://mess:passmess@localhost/messageService?authMechanism=SCRAM-SHA-1
+// mongodb://messageServ:mess@localhost:27017/messageService?authMechanism=SCRAM-SHA-1
 const uri = `mongodb://${user}:${password}@${host}:${port}/${database}?authMechanism=SCRAM-SHA-1`
 
 module.exports = {

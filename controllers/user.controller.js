@@ -2,6 +2,16 @@ const User = require('../models/user.model')
 
 module.exports = {
 
+    list: (req, res) => {
+
+        User.find({}, (err, user) => {
+            if (err) {
+                res.send(err)
+            }
+            res.json(user)
+        })
+    },
+
     find: (req, res) => {
         User.findById(req.params.id, (err, user) => {
             if (err) {

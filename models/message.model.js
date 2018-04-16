@@ -1,33 +1,32 @@
 const mongoose = require('mongoose');
-const UserSchema = require('./user');
+const UserSchema = require('./user.model');
 
 
 const MessageSchema = new mongoose.Schema({
-    /* id: {
-       type: mongoose.Schema.Types.ObjectId,
-       default: new mongoose.Types.ObjectId()
-     },*/
+
     text: {
         type: String,
         required: true
     },
-    users: [{
-        user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
-        }
-    }],
+
     sender: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+        type: String,
+        /*
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+                required: true*/
+    },
+    mailingTo: {
+        type: String,
+        /* type: mongoose.Schema.Types.ObjectId,
+         ref: 'User',
+         required: true*/
     },
     read: {
         type: Date,
         default: Date.now
     },
-    timesstamps: true
+
 });
 
 // új metódusokat írhatunk hozzá
