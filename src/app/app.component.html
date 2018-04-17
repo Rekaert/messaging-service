@@ -1,0 +1,48 @@
+<div class="container">
+  <header>
+    <!--nav-->
+    <nav id="main-menu" class="navbar navbar-expand-lg navbar-white bg-white">
+      <a class="navbar-brand" routerLink="home">
+        <i class="fas fa-home fa-2x"></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" routerLink="home">Home
+            <span class="sr-only">(current)</span>
+          </a>
+          <a class="nav-item nav-link" routerLink="profile">Profile</a>
+          <a class="nav-item nav-link" routerLink="knowledge">Knowledge</a>
+          <a class="nav-item nav-link" routerLink="restfulapi">Project</a>
+          <a class="nav-item nav-link" routerLink="#">Messaging service</a>
+          <a class="nav-item nav-link" routerLink="contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <router-outlet></router-outlet>
+
+  <footer>
+    <!--social ikonok-->
+    <div class="row text-center">
+      <div class="col-12 text center">
+        <a href="https://twitter.com/?lang=en" title="Twitter">
+          <i class="fab fa-3x fa-twitter-square"></i>
+        </a>
+        <a href="https://www.facebook.com/" title="Facebook">
+          <i class="fab fa-3x fa-facebook-square"></i>
+        </a>
+        <a href="https://www.youtube.com/" title="YouTube">
+          <i class="fab fa-3x fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/" title="Instagram">
+          <i class="fab fa-3x fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>

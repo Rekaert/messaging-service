@@ -1,0 +1,39 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Dancing Script', cursive;
+}
+
+#main-menu .nav-item {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.container {
+  box-shadow: 10px 10px 40px 10px rgba(0, 0, 0, 0.20);
+  font-family: 'Courgette', cursive;
+  animation-name: mymove;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes mymove {
+  from {
+    top: 0px;
+    opacity: 0;
+    width: 800px;
+  }
+  to {
+    top: 1000px;
+    opacity: 1;
+    width: 1000px;
+  }
+}
+
+.navbar {
+  cursor: pointer;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  font-size: 25px
+}
