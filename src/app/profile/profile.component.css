@@ -1,0 +1,19 @@
+main,
+img {
+  margin-top: 50px;
+  background: radial-gradient(rgba(228, 41, 0, 0.25), rgba(219, 227, 235, 0.1), rgba(2, 53, 43, 0.1));
+  background-size: cover;
+  color: black
+}
+
+main {
+  padding: 20px;
+}
+
+#personalDatas {
+  margin-top: 160px;
+}
+
+#studies {
+  margin-top: 30px;
+}

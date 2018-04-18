@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
 import { RestfulapiComponent } from './restfulapi/restfulapi.component';
 import { ContactComponent } from './contact/contact.component';
+import { MessagingServiceComponent } from './messaging-service/messaging-service.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -29,7 +30,8 @@ const routes: Routes = [
     ProfileComponent,
     KnowledgeComponent,
     RestfulapiComponent,
-    ContactComponent
+    ContactComponent,
+    MessagingServiceComponent
   ],
   imports: [
     BrowserModule,
