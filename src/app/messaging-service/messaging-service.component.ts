@@ -44,6 +44,7 @@ export class MessagingServiceComponent implements OnInit {
 
   // tömb a message objektumokkal
   datas: any;
+  chosenToUpdate: any;
 
   // adott message objektum, amit szerkeszthetünk
   message: any = {
@@ -102,20 +103,23 @@ export class MessagingServiceComponent implements OnInit {
       });
   }
 
-  delete(_id) {
+  updateByModal(id) {
+    this.chosenToUpdate = this.datas.filter(item => item._id === id)[0];
+    this.message = Object.assign({}, this.chosen);
+  }
+
+  delete() {
     if (confirm('Biztosan törölni szeretné?')) {
-      this.http.delete(`http://localhost:3000/message/${_id}`).subscribe(
+      this.http.delete(`http://localhost:3000/message/${this.chosenToUpdate._id}`).subscribe(
         data => {
           this.errorHandling(data);
+          console.log(data);
           this.getAll();
         });
     }
   }
 
-  updateByModal(id) {
-    const choosen = this.datas.filter(item => item.id === id)[0];
-    this.message = Object.assign({}, choosen);
-  }
+
   /*
     sortTable(key): void {
       for (var k in this.sorts) {
