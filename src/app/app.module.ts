@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-// * import { HttpreqService } from './httpreq.service'; http kérés szervíz létrehozása a loginhoz?
+import { GoTopButtonModule } from 'ng2-go-top-button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,7 +22,8 @@ const routes: Routes = [
   { path: 'knowledge', component: KnowledgeComponent },
   { path: 'restfulapi', component: RestfulapiComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'messaging-service', component: MessagingServiceComponent }
 ];
 
 
@@ -37,9 +41,12 @@ const routes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(routes) // ***
+    RouterModule.forRoot(routes),
+    GoTopButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [GoTopButtonModule]
 })
 export class AppModule { }

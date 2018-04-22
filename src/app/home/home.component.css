@@ -1,3 +1,13 @@
+h1,
+h2,
+h3 {
+  padding: 15px;
+}
+
+section {
+  padding: 10px;
+}
+
 .section-three {
   padding: 150px 0;
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxCs0UbknujUcc2tAddkMd_p91OD4wTE4jHbHV4BoPtvhqoEdtzw') no-repeat center;
@@ -19,4 +29,15 @@
   right: 0;
   bottom: auto;
   left: 50%;
+}
+
+.section-three h2,
+main {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.section-two {
+  color: black;
+  text-shadow: 2px 2px 4px white;
 }
