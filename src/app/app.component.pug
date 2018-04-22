@@ -1,0 +1,67 @@
+.container(style='display: flexbox')
+  header.clearfix
+    // nav
+    nav#main-menu.navbar.sticky-top.navbar-expand-lg.navbar-white.bg-white
+      a.navbar-brand(routerlink='home')
+        i.fas.fa-home.fa-2x
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-center
+        .navbar-nav
+          a.nav-item.nav-link.active(routerlink='home')
+            | Home
+            span.sr-only (current)
+          a.nav-item.nav-link(routerlink='profile') Profile
+          a.nav-item.nav-link(routerlink='knowledge') Knowledge
+          a.nav-item.nav-link(routerlink='restfulapi') Project
+          a.nav-item.nav-link(routerlink='messaging-service') Messaging service
+          a.nav-item.nav-link(routerlink='contact') Contact
+          .bejelentkezesRegisztracio(*ngIf='!bejelentkezve')
+            button.btn.btn-primary(data-toggle='modal', data-target='#registrateOrLogin') LOGIN OR REGISTRATE
+          .kijelentkezes(*ngIf='bejelentkezve')
+            button.btn.btn-danger(type='submit', (click)='logout()') LOGOUT
+  router-outlet
+  go-top-button
+    i.fas.fa-2x.fa-caret-up
+  footer
+    // social ikonok
+    .row.text-center
+      .col-12.text.center
+        a(href='https://twitter.com/?lang=en', data-toggle='tooltip', data-placement='top', title='Twitter')
+          i.fab.fa-3x.fa-twitter-square
+        a(href='https://www.facebook.com/', data-toggle='tooltip', data-placement='top', title='Facebook')
+          i.fab.fa-3x.fa-facebook-square
+        a(href='https://www.youtube.com/', data-toggle='tooltip', data-placement='bottom', title='Youtube')
+          i.fab.fa-3x.fa-youtube
+        a(href='https://www.instagram.com/', data-toggle='tooltip', data-placement='top', title='Instagram')
+          i.fab.fa-3x.fa-instagram
+        a(href='https://www.github.com/', data-toggle='tooltip', data-placement='top', title='GitHub')
+          i.fab.fa-3x.fa-github
+        a(href='https://www.slack.com/', data-toggle='tooltip', data-placement='bottom', title='Slack')
+          i.fab.fa-3x.fa-slack
+// Login&Register Modal
+#registrateOrLogin.modal.fade.text-center(tabindex='-1', role='dialog', aria-labelledby='loginRegistrate', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#loginRegistrate.modal-title {{loginOrRegistrateTitle}}
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          .form-group
+            label.col-form-label(for='userEmail')
+            input#userEmail.form-control(name='userEmail', type='text', placeholder='email', [(ngmodel)]='userData.email')
+          .form-group
+            label.col-form-label(for='password')
+            input#password.form-control(type='text', name='password', placeholder='password', [(ngmodel)]='userData.password')
+          .form-group(*ngIf='!regisztralva')
+            label.col-form-label(for='passwordRepeat')
+            input#password.form-control(type='text', name='password', placeholder='password', [(ngmodel)]='userData.password')
+          .form-group(*ngIf='!regisztralva)
+            label.col-form-label(for='userName')
+            input#userName.form-control(type='text', name='userName', placeholder='username', [(ngmodel)]='userData.username')
+      .modal-footer
+        .btn-group(role='group', aria-label='Basic example')
+          button.btn.btn-primary(type='button', (click)='login()') Bejelentkezem
+          button.btn.btn-success(type='button', (click)='register()') Regisztrálok

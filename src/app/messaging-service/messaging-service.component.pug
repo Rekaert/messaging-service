@@ -1,0 +1,81 @@
+main
+  section
+    .container.text-center
+      .row
+        .col-12
+          h2 Belső üzenetküldő szolgáltatás
+      .row
+        .col-12
+          table.table.table-striped.text-center
+            thead
+              tr
+                th
+                  i.far.fa-2x.fa-comments
+                  |                   Üzenet
+                th
+                  i.far.fa-2x.fa-envelope
+                  |                   Feladó
+                th
+                  i.far.fa-2x.fa-envelope-open
+                  |                   Címzett
+                th
+                  i.far.fa-2x.fa-calendar-check
+                  |                   Olvasva
+            tbody
+              tr
+                td
+                  input#text.form-control(type='text', name='text', [(ngmodel)]='newMessage.text')
+                td
+                  input#sender.form-control(type='text', name='sender', [(ngmodel)]='newMessage.sender')
+                td
+                  input#mailingTo.form-control(type='text', name='mailingTo', [(ngmodel)]='newMessage.mailingTo')
+                td
+                  input#read.form-control(type='date', name='read', disabled='disabled', [(ngmodel)]='newMessage.read')
+                td
+                  .btn-group
+                    button.btn.btn-success(type='button', (click)='create()')
+                      i.far.fa-calendar-plus
+                      |                       Add new item
+              tr(*ngFor='let data of datas')
+                td {{data.text}}
+                td {{data.sender}}
+                td {{data.mailingTo}}
+                td {{data.read | date : "medium"}}
+                td
+                  .btn-group
+                    button.btn.btn-danger(type='button', (click)='delete(data.id)')
+                      i.far.fa-trash-alt
+                      |                       Delete row
+                    button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal', (click)='updateByModal(data.id)')
+                      i.fas.fa-pencil-alt
+                      |                       Edit datas
+  // Modal
+  section
+    .container
+      .row
+        .col-12
+          #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#exampleModalLabel.modal-title Edit datas
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                .modal-body
+                  label(for='id') ID
+                  input#id.form-control(type='text', name='id', [(ngmodel)]='message.id')
+                  br
+                  label(for='text') Text
+                  input#text.form-control(type='text', name='text', [(ngmodel)]='message.text')
+                  br
+                  label(for='important') Sender
+                  input#sender.form-control(type='text', name='sender', [(ngmodel)]='message.sender')
+                  br
+                  label(for='done') MailingTo
+                  input#mailingTo.form-control(type='text', name='mailingTo', [(ngmodel)]='message.mailingTo')
+                  br
+                  label(for='done') Read
+                  input#read.form-control(type='text', name='read', [(ngmodel)]='message.read')
+                .modal-footer
+                  button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                  button.btn.btn-primary(type='button', (click)='update()') Save changes

@@ -3,7 +3,7 @@ import { Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.component.html',
+  templateUrl: './contact.component.pug',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   OnInit() { }
   /*
     ValidateInputs() {
-      // const sendMessageControl = new FormControl('', Validators.required);
+      const sendMessageControl = new FormControl('', Validators.required);
       let inputs: Array<number> = document.querySelector('.form-control');
       for (let i = 0; i < inputs.length; i++) {
         inputs.addEventListener('change', () => {

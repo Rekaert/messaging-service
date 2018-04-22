@@ -4,22 +4,19 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { FormsModule } from '@angular/forms';
 import { checkAndUpdateElementDynamic } from '@angular/core/src/view/element';
 import { DOCUMENT } from '@angular/common';
-import { HostListener } from '@angular/core';
-import { $ } from 'protractor';
+
 
 
 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.pug',
   styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
 
-
-  http: any;
   // ez az összekötés
   // url: 'http://localhost:3000';
 
@@ -28,19 +25,20 @@ export class AppComponent {
     email: '',
     password: ''
   };
+
   datas: any;
+
   bejelentkezve: Boolean = false;
   regisztralva: Boolean = false;
 
   // ModalTitle
   loginOrRegistrateTitle: string = this.regisztralva === false ? 'Regisztráció' : 'Bejelentkezés';
 
-  /*
-    constructor(public http: Http) {
-      this.getUser();
-      this.tooltip();
-      $('footer').tooltip('show');
-    }*/
+
+  constructor(public http: Http) {
+    this.getUser();
+
+  }
 
   getUser() {
     this.http.get('http://localhost:3000', this.userData).subscribe(
@@ -64,6 +62,7 @@ export class AppComponent {
       data => {
         console.log(data);
         this.errorHandling(data);
+        this.regisztralva = true;
       });
   }
 
@@ -86,27 +85,12 @@ export class AppComponent {
   }
   /*
     tooltip() {
-      $(function (): void {
+      $(() => {
         $('[data-toggle="tooltip"]').tooltip()
       });
-    }*/
-  /*
-
-  @HostListener('window:scroll') onScroll() {
-    let nav = document.querySelector('#main-menu');
-    let top = document.body.scrollTop || document.documentElement.scrollTop;
-
-      if (top !== 0) {
-        nav.classList.add('fixed-top');
-      } else {
-        nav.classList.remove('fixed-top');
-      }
     }
 
-    showModal() {
-    setTimeout(() => {
-      $('#registrateOrLogin').modal('show');
-    }, 3000);
+  tooltip() {
+    $('[data-toggle="tooltip"]').tooltip('show');
   }*/
-
 }

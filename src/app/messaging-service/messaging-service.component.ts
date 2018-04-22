@@ -10,18 +10,16 @@ import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-messaging-service',
-  templateUrl: './messaging-service.component.html',
+  templateUrl: './messaging-service.component.pug',
   styleUrls: ['./messaging-service.component.css']
 })
 export class MessagingServiceComponent implements OnInit {
 
-  // keys: Array<string> = ['id', 'üzenet', 'feladó', 'címzett', 'olvasva'];
-  /*
-  lastKey: string = '';
-  sorts: any = {};
-  order: number = 1;
-*/
-  // url: 'http://localhost:3000/message';
+  /*keys: Array<string> = ['id', 'üzenet', 'feladó', 'címzett', 'olvasva'];
+    lastKey: string = '';
+    sorts: any = {};
+    order: number = 1;
+  url: 'http://localhost:3000/message';*/
 
   // új adat, amit fel akarok vinni
   newMessage: object = {
@@ -41,8 +39,9 @@ export class MessagingServiceComponent implements OnInit {
       createdAt: 2018 - 04 - 20 T18: 37: 34.209Z,
       updatedAt: 2018 - 04 - 20 T18: 37: 34.209Z,
       __v: 0
-    };
-  */
+    }; */
+
+
   // tömb a message objektumokkal
   datas: any;
 
@@ -131,7 +130,7 @@ export class MessagingServiceComponent implements OnInit {
       this.lastKey = key;
       for (let i = 0; i < this.datas.length; i++) {
         this.datas.sort((a, b) => {
-          return a[i].sender.toString().localeCompare(b[i].sender.toString()) * this.order;
+          return a[i][key].toString().localeCompare(b[i][key].toString()) * this.order;
         });
       }
     }*/

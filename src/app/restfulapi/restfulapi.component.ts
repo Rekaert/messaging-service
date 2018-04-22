@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-restfulapi',
-  templateUrl: './restfulapi.component.html',
+  templateUrl: './restfulapi.component.pug',
   styleUrls: ['./restfulapi.component.css']
 })
 export class RestfulapiComponent implements OnInit {
