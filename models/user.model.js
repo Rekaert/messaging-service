@@ -1,26 +1,31 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 const MessageSchema = require('./message.model');
 
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = mongoose.Schema({
 
-    name: {
+    username: {
         type: String,
-        required: [true, 'Name is required']
+        required: true
     },
 
     email: {
         type: String,
-        lowercase: true,
         unique: true,
-        required: [true, 'Email is required']
+        required: true
     },
 
-    password: {
-        type: String,
-        required: [true, 'Password is required']
-    },
+    messages: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Message',
+    }],
+}, {
+    timestamps: true
 });
 
+UserSchema.plugin(passportLocalMongoose, {
+    maxAttempts: 5
+});
 
 module.exports = mongoose.model('User', UserSchema);

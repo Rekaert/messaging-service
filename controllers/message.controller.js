@@ -1,7 +1,8 @@
 const Message = require('../models/message.model');
+const User = require('../models/user.model');
 
 module.exports = {
-
+    // getAll
     list: (req, res) => {
 
         Message.find({}, (err, message) => {
@@ -11,7 +12,7 @@ module.exports = {
             res.json(message)
         })
     },
-
+    // getOne
     find: (req, res) => {
         Message.findById(req.params.id, (err, message) => {
             if (err) {
@@ -26,7 +27,8 @@ module.exports = {
             if (err) {
                 res.send(err)
             }
-            res.json(message)
+            res.json(message);
+            console.log('New message is add to the database');
         })
     },
 
@@ -45,7 +47,8 @@ module.exports = {
             if (err) {
                 res.send(err)
             }
-            res.json(message)
+            res.json(message);
+            console.log('message: The message is deleted');
         })
     }
 }

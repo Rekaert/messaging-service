@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 const UserSchema = require('./user.model');
 
 
-const MessageSchema = new mongoose.Schema({
+const MessageSchema = mongoose.Schema({
+    /*
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            default: new mongoose.Types.ObjectId()
+        },*/
 
     text: {
         type: String,
@@ -11,21 +16,20 @@ const MessageSchema = new mongoose.Schema({
 
     sender: {
         type: String,
-        /*
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'User',
-                required: true*/
+        required: true
     },
+
     mailingTo: {
         type: String,
-        /* type: mongoose.Schema.Types.ObjectId,
-         ref: 'User',
-         required: true*/
+        required: true
     },
+
     read: {
         type: Date,
         default: Date.now
     },
+}, {
+    timestamps: true
 
 });
 
