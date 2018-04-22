@@ -82,11 +82,11 @@
             <label for="password" class="col-form-label"></label>
             <input type="text" name="password" class="form-control" id="password" placeholder="password" [(ngModel)]="userData.password">
           </div>
-          <div class="form-group" *ngIf="">
+          <div class="form-group" *ngIf="!regisztralva">
             <label for="passwordRepeat" class="col-form-label"></label>
             <input type="text" name="password" class="form-control" id="password" placeholder="password" [(ngModel)]="userData.password">
           </div>
-          <div class="form-group" *ngIf="">
+          <div class="form-group" *ngIf="!regisztralva">
             <label for="userName" class="col-form-label"></label>
             <input type="text" name="userName" class="form-control" id="userName" placeholder="username" [(ngModel)]="userData.username">
           </div>

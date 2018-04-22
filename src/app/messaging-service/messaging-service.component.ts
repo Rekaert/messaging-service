@@ -15,13 +15,12 @@ import { NgModule } from '@angular/core';
 })
 export class MessagingServiceComponent implements OnInit {
 
-  // keys: Array<string> = ['id', 'üzenet', 'feladó', 'címzett', 'olvasva'];
-  /*
+  /*keys: Array<string> = ['id', 'üzenet', 'feladó', 'címzett', 'olvasva'];
   lastKey: string = '';
   sorts: any = {};
   order: number = 1;
-*/
-  // url: 'http://localhost:3000/message';
+
+ url: 'http://localhost:3000/message';*/
 
   // új adat, amit fel akarok vinni
   newMessage: object = {
@@ -43,11 +42,12 @@ export class MessagingServiceComponent implements OnInit {
       __v: 0
     };
   */
+
   // tömb a message objektumokkal
   datas: any;
 
   // adott message objektum, amit szerkeszthetünk
-  message: any = {
+  message: object = {
     _id: '',
     text: '',
     sender: '',
@@ -80,7 +80,7 @@ export class MessagingServiceComponent implements OnInit {
     this.http.get('http://localhost:3000/message').subscribe(
       data => {
         console.log(data);
-        // this.datas = data;
+        this.datas = data;
         this.errorHandling(data);
       });
   }
