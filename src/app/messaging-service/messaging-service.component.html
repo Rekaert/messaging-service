@@ -12,6 +12,9 @@
             <thead>
               <tr>
                 <th>
+                  <i class="fab fa-slack-hash"></i>
+                </th>
+                <th>
                   <i class="far fa-2x fa-comments"></i>
                   Üzenet
                 </th>
@@ -31,6 +34,7 @@
             </thead>
             <tbody>
               <tr>
+                <td></td>
                 <td>
                   <input class="form-control" type="text" name="text" id="text" [(ngModel)]="newMessage.text">
                 </td>
@@ -51,17 +55,19 @@
                   </div>
                 </td>
               </tr>
-              <tr *ngFor="let data of datas">
-                <td>{{data.text}}</td>
-                <td>{{data.sender}}</td>
-                <td>{{data.mailingTo}}</td>
+              <tr *ngFor="let data of datas; index as i">
+                <td>{{i + 1}}.</td>
+                <td>{{data.text}} </td>
+                <td>{{data.sender}} </td>
+                <td>{{data.mailingTo}} </td>
                 <td>{{data.read | date : "medium"}}</td>
                 <td>
                   <div class="btn-group">
-                    <button class="btn btn-danger" type="button" (click)="delete(data.id)">
+                    <!--{{data | json}}-->
+                    <button class="btn btn-danger" type="button" (click)="delete(data._id)">
                       <i class="far fa-trash-alt"></i>
                       Delete row</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="updateByModal(data.id)">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="updateByModal(data._id)">
                       <i class="fas fa-pencil-alt"></i>
                       Edit datas
                     </button>
@@ -90,19 +96,19 @@
                 </div>
                 <div class="modal-body">
                   <label for="id">ID</label>
-                  <input class="form-control" type="text" name="id" id="id" [(ngModel)]="message.id">
+                  <input class="form-control" type="text" name="id" id="modalId" [(ngModel)]="message._id">
                   <br/>
                   <label for="text">Text</label>
-                  <input class="form-control" type="text" name="text" id="text" [(ngModel)]="message.text">
+                  <input class="form-control" type="text" name="text" id="modalText" [(ngModel)]="message.text">
                   <br/>
                   <label for="important">Sender</label>
-                  <input class="form-control" type="text" name="sender" id="sender" [(ngModel)]="message.sender">
+                  <input class="form-control" type="text" name="sender" id="modalSender" [(ngModel)]="message.sender">
                   <br/>
                   <label for="done">MailingTo</label>
-                  <input class="form-control" type="text" name="mailingTo" id="mailingTo" [(ngModel)]="message.mailingTo">
+                  <input class="form-control" type="text" name="mailingTo" id="modalMailingTo" [(ngModel)]="message.mailingTo">
                   <br/>
                   <label for="done">Read</label>
-                  <input class="form-control" type="text" name="read" id="read" [(ngModel)]="message.read">
+                  <input class="form-control" type="text" name="read" id="modalRead" [(ngModel)]="message.read">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

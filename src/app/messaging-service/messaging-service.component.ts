@@ -103,20 +103,23 @@ export class MessagingServiceComponent implements OnInit {
       });
   }
 
-  delete(_id) {
+  updateByModal(id) {
+    const chosen = this.datas.filter(item => item._id === id)[0];
+    this.message = Object.assign({}, chosen);
+  }
+
+  delete(id) {
     if (confirm('Biztosan törölni szeretné?')) {
-      this.http.delete(`http://localhost:3000/message/${_id}`).subscribe(
+      this.http.delete(`http://localhost:3000/message/${id}`).subscribe(
         data => {
           this.errorHandling(data);
+          console.log(data);
           this.getAll();
         });
     }
   }
 
-  updateByModal(id) {
-    const choosen = this.datas.filter(item => item.id === id)[0];
-    this.message = Object.assign({}, choosen);
-  }
+
   /*
     sortTable(key): void {
       for (var k in this.sorts) {

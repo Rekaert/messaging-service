@@ -31,8 +31,7 @@ export class AppComponent {
   bejelentkezve: Boolean = false;
   regisztralva: Boolean = false;
 
-  // ModalTitle
-  loginOrRegistrateTitle: string = this.regisztralva === false ? 'Regisztráció' : 'Bejelentkezés';
+
 
 
   constructor(public http: Http) {
@@ -60,17 +59,20 @@ export class AppComponent {
   register() {
     this.http.post('http://localhost:3000/register', this.userData).subscribe(
       data => {
-        console.log(data);
+        console.log(this.userData);
         this.errorHandling(data);
         this.regisztralva = true;
+        alert('Sikeres regisztráció!');
+        // this.login();
       });
   }
 
   login() {
     this.http.post('http://localhost:3000/login', this.userData).subscribe(
       data => {
-        console.log(data);
+        console.log(this.userData);
         this.bejelentkezve = true;
+        this.regisztralva = true;
         this.errorHandling(data);
       });
   }
@@ -89,8 +91,9 @@ export class AppComponent {
         $('[data-toggle="tooltip"]').tooltip()
       });
     }
+    
+    tooltip() {
+      $('[data-toggle="tooltip"]').tooltip('show');
+    }*/
+}
 
-  tooltip() {
-    $('[data-toggle="tooltip"]').tooltip('show');
-  }
-}*/
